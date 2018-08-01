@@ -1,0 +1,163 @@
+{
+	"info": {
+		"_postman_id": "f205dfd5-81c5-4188-bbd9-7f8f0250896a",
+		"name": "Inventory",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"_postman_id": "e0a950f4-48aa-4c57-a134-a56a97be7d49",
+			"name": "Create Item",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "123",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"code\":\"Code_1\",\n\t\"name\":\"Item_1\",\n\t\"description\":\"Description 1\",\n\t\"quantity\":100\n\t\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/inventory/items",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"inventory",
+						"items"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"_postman_id": "9a8b6d62-d2e3-4225-ab90-20ccdc1ed973",
+			"name": "Update Item",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "123",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"code\":\"Code_1\",\n\t\"name\":\"Item_2\",\n\t\"description\":\"Description 2\",\n\t\"quantity\":30\n\t\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/inventory/items",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"inventory",
+						"items"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"_postman_id": "5255af89-b1be-4524-a173-07ad4ec25cec",
+			"name": "Get Items",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "user",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "123",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/api/inventory",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"inventory"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"_postman_id": "85bd42c3-7bc8-43a1-8050-983f4b24268b",
+			"name": "Get Item Stock Record",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/api/inventory/items/Code_1/stockrecords",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"inventory",
+						"items",
+						"Code_1",
+						"stockrecords"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

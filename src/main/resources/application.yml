@@ -1,0 +1,25 @@
+logging:
+  file: logs/application.log
+  pattern:
+    console: '%d %-5level %logger : %msg%n'
+    file: '%d %-5level [%thread] %logger : %msg%n'
+  level:
+    au.com.sudeera.inventory: ERROR
+spring:
+  main:
+    banner-mode: log
+    
+#Dummy properties
+my-prop:
+  host: mailer@mail.com
+  port: 9000
+  from: mailer@mail.com
+  defaultRecipients[0]: admin@mail.com
+  defaultRecipients[1]: owner@mail.com
+  additionalHeaders:
+    redelivery: true
+    secure: true
+  credentials:
+    username: sudeera
+    password: 123
+    authMethod: SHA1

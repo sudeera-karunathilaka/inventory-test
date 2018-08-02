@@ -11,10 +11,14 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @Configuration
 public class WebConfig implements WebMvcConfigurer {
 
+    /* (non-Javadoc)
+     * @see org.springframework.web.servlet.config.annotation.WebMvcConfigurer#configurePathMatch(org.springframework.web.servlet.config.annotation.PathMatchConfigurer)
+     */
     @Override
     public void configurePathMatch(PathMatchConfigurer configurer) {
         AntPathMatcher matcher = new AntPathMatcher();
         matcher.setCaseSensitive(false);
         configurer.setPathMatcher(matcher);
     }
+    
 }

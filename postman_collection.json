@@ -6,7 +6,7 @@
 	},
 	"item": [
 		{
-			"_postman_id": "e0a950f4-48aa-4c57-a134-a56a97be7d49",
+			"_postman_id": "0026f3f5-ccd8-497a-a4df-b63edc07fd4b",
 			"name": "Create Item",
 			"request": {
 				"auth": {
@@ -52,7 +52,7 @@
 			"response": []
 		},
 		{
-			"_postman_id": "9a8b6d62-d2e3-4225-ab90-20ccdc1ed973",
+			"_postman_id": "970ab5af-a2e8-4fa6-a7fa-80c460ef7a2f",
 			"name": "Update Item",
 			"request": {
 				"auth": {
@@ -98,7 +98,7 @@
 			"response": []
 		},
 		{
-			"_postman_id": "5255af89-b1be-4524-a173-07ad4ec25cec",
+			"_postman_id": "2179df30-a4fc-40e5-9f57-c15cc7c50e2d",
 			"name": "Get Items",
 			"request": {
 				"auth": {
@@ -117,7 +117,12 @@
 					]
 				},
 				"method": "GET",
-				"header": [],
+				"header": [
+					{
+						"key": "Accept-Language",
+						"value": "fr"
+					}
+				],
 				"body": {},
 				"url": {
 					"raw": "http://localhost:8080/api/inventory",
@@ -135,7 +140,7 @@
 			"response": []
 		},
 		{
-			"_postman_id": "85bd42c3-7bc8-43a1-8050-983f4b24268b",
+			"_postman_id": "cc443c80-7dbf-4542-81de-c97b041c1a11",
 			"name": "Get Item Stock Record",
 			"request": {
 				"method": "GET",

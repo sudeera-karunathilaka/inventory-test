@@ -18,9 +18,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import au.com.sudeera.inventory.config.ApplicationProperties;
+import au.com.sudeera.inventory.config.ApplicationProperties.Credentials;
 import au.com.sudeera.inventory.factory.ConverterFactory;
 import au.com.sudeera.inventory.model.Item;
 import au.com.sudeera.inventory.service.InventoryService;
+import au.com.sudeera.inventory.util.MessageUtil;
 import au.com.sudeera.inventory.wrapper.ItemHistoryWrapper;
 import au.com.sudeera.inventory.wrapper.ItemWrapper;
 
@@ -36,7 +39,12 @@ public class InventoryResource {
 
 	/** The inventory service. */
 	private InventoryService inventoryService;
+	
+	/** The application properties. */
+	private ApplicationProperties applicationProperties;
 
+	private MessageUtil messageUtil;
+	
 	/**
 	 * Sets the inventory service.
 	 *
@@ -57,10 +65,20 @@ public class InventoryResource {
 		this.converterFactory = converterFactory;
 	}
 	
-//	@GetMapping()
-//	public String handleRootURL() {
-//		return "Test inventory project using Spring boot, java 1.8 and inmemory authentication";
-//	}
+	/**
+	 * Sets the application properties.
+	 *
+	 * @param applicationProperties the new application properties
+	 */
+	@Autowired
+	public void setApplicationProperties(ApplicationProperties applicationProperties) {
+		this.applicationProperties = applicationProperties;
+	}
+	
+	@Autowired
+	public void setMessageUtil(MessageUtil messageUtil) {
+		this.messageUtil = messageUtil;
+	}
 
 	/**
 	 * Gets the items.
@@ -69,6 +87,13 @@ public class InventoryResource {
 	 */
 	@GetMapping(produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public ResponseEntity<List<ItemWrapper>> getItems() {
+		//Dummy - Reading properties from application.yml file
+		Credentials credentials = applicationProperties.getCredentials();
+		List<String> defaultRecipients = applicationProperties.getDefaultRecipients();
+
+		//Dummy - Reading messages from messages.properites file
+        String defaultTitle = messageUtil.get("greeting");
+	    
 		List<Item> items = inventoryService.getItems();
 		List<ItemWrapper> list = items.stream().map(item -> converterFactory.convertToItemWrapper(item))
 				.collect(Collectors.toList());

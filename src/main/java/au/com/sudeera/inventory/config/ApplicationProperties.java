@@ -12,7 +12,7 @@ import org.springframework.context.annotation.PropertySource;
  * with "my-prop", from Application.properties file.
  */
 @Configuration
-@PropertySource("classpath:Application.yml")
+@PropertySource("classpath:application.yml")
 @ConfigurationProperties(prefix = "my-prop")
 public class ApplicationProperties {
 
